@@ -1,4 +1,5 @@
-from src.entities.entity import Entity
+from src.entities.static_objects.static_object import StaticObject
 
-class Rock(Entity):
+
+class Rock(StaticObject):
     pass

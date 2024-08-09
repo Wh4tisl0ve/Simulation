@@ -4,3 +4,6 @@ class Actions:
 
     def turn_actions(self):
         pass
+
+    def generate_entities(self):
+        pass

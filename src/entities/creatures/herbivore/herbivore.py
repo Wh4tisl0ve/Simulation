@@ -3,7 +3,6 @@ from src.entities.resources.grass import Grass
 
 
 class Herbivore(Creature):
-
     def __init__(self):
         self.__resource: Grass = None
 
