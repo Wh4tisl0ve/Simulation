@@ -8,3 +8,6 @@ class Herbivore(Creature):
 
     def make_move(self):
         pass
+
+    def eat(self, grass: Grass):
+        pass

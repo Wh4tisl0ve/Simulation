@@ -1,4 +1,3 @@
-
 class Simulation:
     def __init__(self, map: Map, renderer: Renderer):
         self.__map = map

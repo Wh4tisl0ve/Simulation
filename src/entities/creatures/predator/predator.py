@@ -9,7 +9,6 @@ class Predator(Creature):
         self.__attack_power = None
 
     def make_move(self):
-        #find_eat() -> Point
         pass
 
     def attack(self, herbivore: Herbivore):
