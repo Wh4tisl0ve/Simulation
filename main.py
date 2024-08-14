@@ -1,13 +1,14 @@
+from src.actions import Actions
 from src.map import Map
-from src.renderer import MapConsoleRenderer
+from src.simulation import Simulation
 
 
 def main():
-    map = Map((20, 20))
-    renderer = MapConsoleRenderer()
-    renderer.render(map)
+    map = Map((5, 5))
+    actions = Actions()
+    simulation = Simulation(map, actions)
+    simulation.start_simulation()
 
 
 if __name__ == '__main__':
     main()
-

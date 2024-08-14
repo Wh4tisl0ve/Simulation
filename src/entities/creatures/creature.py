@@ -4,9 +4,9 @@ from abc import ABC, abstractmethod
 from src.coordinates import Coordinates
 
 
-class Creature(ABC, Entity):
-    def __init__(self, point: Coordinates):
-        super(self).__init__(point)
+class Creature(Entity):
+    def __init__(self, coord: Coordinates):
+        super().__init__(coord)
         self.__cnt_cells_pass = None
         self.__health_point = None
         self.__food = None
