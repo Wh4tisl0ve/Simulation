@@ -24,7 +24,7 @@ class MapConsoleRenderer:
                     print(' ', end=' ')
                 else:
                     icon_entity = self.select_icon_entities(map.get_entity(Coordinates(i, j)))
-                    print(icon_entity, end=' ' )
+                    print(icon_entity, end=' ')
             print(' ')
 
     def select_icon_entities(self, entity: Entity) -> str:

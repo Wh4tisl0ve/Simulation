@@ -1,5 +1,4 @@
-from src.actions import Actions
-from src.map.coordinates import Coordinates
+from src.actions.actions import Actions
 from src.map.map import Map
 from src.map.renderer import MapConsoleRenderer
 
@@ -17,10 +16,11 @@ class Simulation:
 
     def start_simulation(self):
         self.__actions.init_actions()
-        #while()
+        # while()
 
         self.__field_renderer.render(self.__map)
-        #self.__next_turn()
+        self.__next_turn()
+        # self.__next_turn()
 
     def pause_simulation(self):
         pass

@@ -1,10 +1,9 @@
-from src.actions import Actions
 from src.map.map import Map
 from src.simulation import Simulation
 
 
 def main():
-    map = Map((5, 5))
+    map = Map((10, 10))
     simulation = Simulation(map)
     simulation.start_simulation()
 
