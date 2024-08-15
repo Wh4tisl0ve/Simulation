@@ -1,4 +1,3 @@
-from src.actions import Actions
 from src.map import Map
 from src.simulation import Simulation
 
@@ -8,6 +7,8 @@ def main():
     actions = Actions()
     simulation = Simulation(map, actions)
     simulation.start_simulation()
+
+
 
 
 if __name__ == '__main__':

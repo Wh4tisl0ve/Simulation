@@ -1,4 +1,5 @@
-from src.entities.entity import Entity
+from src.entities.resources.resource import Resource
 
-class Grass(Entity):
+
+class Grass(Resource):
     pass
