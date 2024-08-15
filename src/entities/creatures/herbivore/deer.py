@@ -1,5 +1,7 @@
 from src.entities.creatures.herbivore.herbivore import Herbivore
+from src.map.coordinates import Coordinates
 
 
 class Deer(Herbivore):
-    pass
+    def __init__(self, coord: Coordinates):
+        super().__init__(coord)

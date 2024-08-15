@@ -1,10 +1,12 @@
 from src.entities.creatures.creature import Creature
 from src.entities.creatures.herbivore.herbivore import Herbivore
+from src.map.coordinates import Coordinates
 
 
 class Predator(Creature):
 
-    def __init__(self):
+    def __init__(self, coord: Coordinates):
+        super().__init__(coord)
         self.__food: Herbivore = None
         self.__attack_power = None
 

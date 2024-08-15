@@ -1,9 +1,11 @@
 from src.entities.creatures.creature import Creature
 from src.entities.resources.grass import Grass
+from src.map.coordinates import Coordinates
 
 
 class Herbivore(Creature):
-    def __init__(self):
+    def __init__(self, coord: Coordinates):
+        super().__init__(coord)
         self.__resource: Grass = None
 
     def make_move(self):

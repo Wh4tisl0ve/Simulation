@@ -1,6 +1,6 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
-from src.coordinates import Coordinates
+from src.map.coordinates import Coordinates
 
 
 class Entity(ABC):
