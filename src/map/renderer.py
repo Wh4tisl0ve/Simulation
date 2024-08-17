@@ -18,13 +18,18 @@ class MapConsoleRenderer:
         map_width = map_size[0]
         map_height = map_size[1]
 
+        for i in range(map_height):
+            print(f'\t{str(i)}', end='')
+        print()
+
         for i in range(map_width):
+            print(f'{i}', end='')
             for j in range(map_height):
                 if map.is_cell_empty(Coordinates(i, j)):
-                    print(' ', end=' ')
+                    print('\t🔲', end='')
                 else:
                     icon_entity = self.select_icon_entities(map.get_entity(Coordinates(i, j)))
-                    print(icon_entity, end=' ')
+                    print(f'\t{icon_entity}', end='')
             print(' ')
 
     def select_icon_entities(self, entity: Entity) -> str:

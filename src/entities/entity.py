@@ -12,6 +12,3 @@ class Entity(ABC):
 
     def get_coord(self) -> Coordinates:
         return self.__coord
-
-    def set_coord(self, point: Coordinates):
-        self.__coord = point

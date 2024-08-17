@@ -1,3 +1,4 @@
+from src.entities.creatures.creature import Creature
 from src.map.map import Map
 from src.reader import read_json
 from math import ceil
@@ -13,7 +14,10 @@ class Actions:
         self.generate_entities(proportion)
 
     def turn_actions(self):
-        pass
+        map = self.__map.get_map()
+        for entity in map.values():
+            if isinstance(entity, Creature):
+                entity.make_move(self.__map)
 
     def generate_entities(self, proportion: dict):
         dict_entity = get_concrete_entities(proportion)

@@ -26,7 +26,7 @@ class Map:
         else:
             return self.get_random_empty_coord()
 
-    def get_square_map(self):
+    def get_square_map(self) -> int:
         return self.__size[0] * self.__size[1]
 
     def add_entity_on_map(self, entity: Entity, coord: Coordinates) -> None:
@@ -34,6 +34,13 @@ class Map:
 
     def is_cell_empty(self, coord: Coordinates) -> bool:
         return not (coord in self.__map.keys())
+
+    def is_correct_point(self, point: Coordinates) -> bool:
+        map_size = self.__size
+        return 0 <= point.get_x() <= map_size[0] - 1 and 0 <= point.get_y() <= map_size[1] - 1
+
+    def get_map(self) -> dict:
+        return self.__map
 
 
 

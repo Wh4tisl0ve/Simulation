@@ -13,11 +13,9 @@ class Predator(Creature):
         self.__attack_power = None
 
     def make_move(self):
+        bfs(self.__food)
         pass
 
     def attack(self, herbivore: Herbivore):
         # herbivore.set_HP(herbivore.get_HP() - self.__attack_power)
-        pass
-
-    def moving(self):
         pass
