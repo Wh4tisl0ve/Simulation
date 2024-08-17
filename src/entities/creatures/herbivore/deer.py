@@ -13,8 +13,8 @@ class Deer(Herbivore):
         self.__resource: Type = Grass
 
     def make_move(self, map: Map):
-        finder = WayFinder(map)
-        finder.start_finding_way(self.get_coord(), self.__resource)
+        finder = WayFinder(map, self.__resource)
+        way = finder.finding_shortest_way(self.get_coord())
 
     def __repr__(self):
         return f'Олень с координатами {self.get_coord()}'

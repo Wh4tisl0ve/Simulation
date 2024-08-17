@@ -6,39 +6,51 @@ from src.map.map import Map
 
 
 class WayFinder:
-    def __init__(self, map: Map):
+    def __init__(self, map: Map, entity_find: Type):
         self.__map = map
+        self.__entity_find = entity_find
 
-    def start_finding_way(self, start_coord: Coordinates, entity_find: Type):
-        list_goals_point = self.get_goals_point(entity_find, self.__map.get_map())
+    def finding_shortest_way(self, start_coord: Coordinates):
+        list_goals_point = self.get_goals_point(self.__entity_find, self.__map.get_map())
+        list_ways = []
         for goal_point in list_goals_point:
-            self.bfs(start_coord, goal_point)
+            list_ways.append(self.bfs(start_coord, goal_point))
+
+        return min(list_ways, key=len)
 
     def bfs(self, start_coord: Coordinates, goal_coord: Coordinates):
-        visited = []
+        visited_point = set()
         queue = Queue()
         queue.put(start_coord)
+        parent = {}
 
         while not queue.empty():
             current_point = queue.get()
-            print('Текущая точка:', current_point)
+            visited_point.add(current_point)
 
-            visited.append(current_point)
+            if current_point == goal_coord:
+                return self.build_path(parent, start_coord, goal_coord)
 
             list_moves = self.get_list_moves(current_point)
 
             for point in list_moves:
-                if point == goal_coord:
-                    print(point)
-                    print('*******************Есть!*******************')
-                    print('Цель:', goal_coord)
-                    return
-                if point not in visited:
-                    if self.__map.is_correct_point(point) and self.__map.is_cell_empty(point):
-                        print('Перемещения:', point)
+                if point not in visited_point and self.__map.is_correct_point(point):
+                    if self.__map.is_cell_empty(point) or isinstance(self.__map.get_entity(point), self.__entity_find):
+                        visited_point.add(point)
+                        parent[point] = current_point
                         queue.put(point)
-                        visited.append(point)
+
         return []
+
+    def build_path(self, parent: dict, start_point: Coordinates, goal_point: Coordinates) -> list:
+        pointer = goal_point
+        path = [pointer]
+
+        while pointer != start_point:
+            pointer = parent[pointer]
+            path.append(pointer)
+
+        return list(reversed(path))
 
     def get_list_moves(self, current_point: Coordinates) -> list:
         coord_up = Coordinates(current_point.get_x() - 1, current_point.get_y())
