@@ -41,6 +41,3 @@ class Map:
 
     def get_map(self) -> dict:
         return self.__map
-
-
-

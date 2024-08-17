@@ -3,6 +3,7 @@ from typing import Type
 from src.entities.creatures.creature import Creature
 from src.entities.creatures.herbivore.herbivore import Herbivore
 from src.map.coordinates import Coordinates
+from src.map.map import Map
 
 
 class Predator(Creature):
@@ -12,8 +13,7 @@ class Predator(Creature):
         self.__food: Type = Herbivore
         self.__attack_power = None
 
-    def make_move(self):
-        bfs(self.__food)
+    def make_move(self, map: Map):
         pass
 
     def attack(self, herbivore: Herbivore):

@@ -2,7 +2,7 @@ from src.entities.creatures.creature import Creature
 from src.map.map import Map
 from src.reader import read_json
 from math import ceil
-from src.actions.child_classes import get_concrete_entities
+from src.actions.actions_utils import ActionsUtils
 
 
 class Actions:
@@ -20,7 +20,7 @@ class Actions:
                 entity.make_move(self.__map)
 
     def generate_entities(self, proportion: dict):
-        dict_entity = get_concrete_entities(proportion)
+        dict_entity = ActionsUtils().get_concrete_entities(proportion)
         for entity, value_proportion in dict_entity.items():
             cnt_entity = ceil((value_proportion * self.__map.get_square_map()) / 2)
             self.add_entity(cnt_entity, entity)

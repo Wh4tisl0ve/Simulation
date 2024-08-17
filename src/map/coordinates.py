@@ -16,4 +16,4 @@ class Coordinates:
         return hash((self.__x, self.__y))
 
     def __repr__(self):
-        return f'x: {self.__x}, y: {self.__y}'
+        return f'Point(x: {self.__x}, y: {self.__y})'

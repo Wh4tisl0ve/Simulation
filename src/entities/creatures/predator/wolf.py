@@ -7,5 +7,4 @@ class Wolf(Predator):
         super().__init__(coord)
 
     def make_move(self):
-        #find_eat() -> Point
         pass

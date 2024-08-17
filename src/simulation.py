@@ -1,3 +1,5 @@
+import time
+
 from src.actions.actions import Actions
 from src.map.map import Map
 from src.map.renderer import MapConsoleRenderer
@@ -16,11 +18,10 @@ class Simulation:
 
     def start_simulation(self):
         self.__actions.init_actions()
-        # while()
-
-        self.__field_renderer.render(self.__map)
-        self.__next_turn()
-        # self.__next_turn()
+        while True:
+            self.__field_renderer.render(self.__map)
+            self.__next_turn()
+            time.sleep(1)
 
     def pause_simulation(self):
         pass
