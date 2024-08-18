@@ -15,7 +15,7 @@ class Predator(Creature):
         pass
 
     def attack(self) -> None:
-        pass
+        print('Атака!', self)
 
     def get_food(self) -> Type:
         return self._food

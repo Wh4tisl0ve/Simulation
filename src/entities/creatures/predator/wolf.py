@@ -14,6 +14,7 @@ class Wolf(Predator):
         self._weight = random.randint(60, 100)
         self._attack_power: int = int((self._age * self._weight) * 0.1)
         self.__cnt_cells_pass = 4
+        self.__attack_range = 2
 
     def make_move(self, map: Map):
         finder = WayFinder(map, self.get_food())
@@ -29,7 +30,14 @@ class Wolf(Predator):
         else:
             steps = self.__cnt_cells_pass - 1
 
-        self.set_coord(way[steps])
+        food_coord_index = len(way) - 1
+
+        print(way)
+        if abs(steps - food_coord_index) <= self.__attack_range:
+            self.set_coord(way[steps - 1])
+            self.attack()
+        else:
+            self.set_coord(way[steps])
 
     def __repr__(self):
         return f'Волк с координатами {self.get_coord()}'
