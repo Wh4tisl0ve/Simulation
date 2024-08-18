@@ -44,4 +44,4 @@ class MapConsoleRenderer:
         elif isinstance(entity, Tree):
             return "🌳"
         else:
-            return ' '
+            return '🔲'

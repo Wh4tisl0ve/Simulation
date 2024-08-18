@@ -29,6 +29,15 @@ class Map:
     def get_square_map(self) -> int:
         return self.__size[0] * self.__size[1]
 
+    def get_map(self) -> dict:
+        return self.__map
+
+    def update(self) -> None:
+        for point, entity in list(self.__map.items()):
+            if entity.get_coord() != point:
+                self.__map[entity.get_coord()] = entity
+                self.__map.pop(point)
+
     def add_entity_on_map(self, entity: Entity, coord: Coordinates) -> None:
         self.__map[coord] = entity
 
@@ -39,5 +48,4 @@ class Map:
         map_size = self.__size
         return 0 <= point.get_x() <= map_size[0] - 1 and 0 <= point.get_y() <= map_size[1] - 1
 
-    def get_map(self) -> dict:
-        return self.__map
+

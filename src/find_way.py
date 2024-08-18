@@ -16,7 +16,7 @@ class WayFinder:
         for goal_point in list_goals_point:
             list_ways.append(self.bfs(start_coord, goal_point))
 
-        return min(list_ways, key=len)
+        return min(list_ways, default=[], key=len)
 
     def bfs(self, start_coord: Coordinates, goal_coord: Coordinates):
         visited_point = set()

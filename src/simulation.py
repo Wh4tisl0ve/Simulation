@@ -14,14 +14,13 @@ class Simulation:
 
     def __next_turn(self):
         self.__actions.turn_actions()
-        pass
 
     def start_simulation(self):
         self.__actions.init_actions()
         while True:
             self.__field_renderer.render(self.__map)
             self.__next_turn()
-            time.sleep(1)
+            time.sleep(2)
 
     def pause_simulation(self):
         pass

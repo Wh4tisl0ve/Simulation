@@ -1,3 +1,4 @@
+import random
 from typing import Type
 
 from src.entities.creatures.herbivore.herbivore import Herbivore
@@ -5,6 +6,7 @@ from src.entities.resources.grass import Grass
 from src.find_way import WayFinder
 from src.map.coordinates import Coordinates
 from src.map.map import Map
+from typing import List
 
 
 class Deer(Herbivore):
@@ -17,14 +19,20 @@ class Deer(Herbivore):
         finder = WayFinder(map, self.__resource)
         way = finder.finding_shortest_way(self.get_coord())
 
-        steps = self.__cnt_cells_pass
+        if len(way) >= 1:
+            self.migrate(way)
 
+    def migrate(self, way: List[Coordinates]) -> None:
+        steps = self.__cnt_cells_pass
         if steps > len(way):
             steps = len(way) - 1
         else:
             steps = self.__cnt_cells_pass - 1
 
         self.set_coord(way[steps])
+
+    def eat(self):
+        pass
 
     def __repr__(self):
         return f'Олень с координатами {self.get_coord()}'
