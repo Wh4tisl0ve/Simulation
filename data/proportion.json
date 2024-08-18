@@ -1,5 +1,5 @@
 {
-  "Predator": 0,
+  "Predator": 0.2,
   "Herbivore": 0.4,
   "Resource": 0.2,
   "StaticObject": 0.2

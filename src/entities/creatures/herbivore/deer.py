@@ -12,6 +12,9 @@ from typing import List
 class Deer(Herbivore):
     def __init__(self, coord: Coordinates):
         super().__init__(coord)
+        self._age = random.randint(5, 20)
+        self._weight = random.randint(75, 200)
+        self._health_point: int = int((self._age * self._weight) / 10)
         self.__resource: Type = Grass
         self.__cnt_cells_pass: int = 3
 

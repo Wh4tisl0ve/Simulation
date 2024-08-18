@@ -4,8 +4,6 @@ from src.map.coordinates import Coordinates
 
 
 class Entity(ABC):
-    """Корневой абстрактный класс для всех существ и
-         объектов существующих в симуляции."""
 
     def __init__(self, coord: Coordinates):
         self.__coord: Coordinates = coord
