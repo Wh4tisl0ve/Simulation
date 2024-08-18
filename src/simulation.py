@@ -17,10 +17,11 @@ class Simulation:
 
     def start_simulation(self):
         self.__actions.init_actions()
+        self.__field_renderer.render(self.__map)
         while True:
-            self.__field_renderer.render(self.__map)
-            self.__next_turn()
             time.sleep(2)
+            self.__next_turn()
+            self.__field_renderer.render(self.__map)
 
     def pause_simulation(self):
         pass

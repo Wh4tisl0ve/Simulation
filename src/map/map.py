@@ -47,5 +47,3 @@ class Map:
     def is_correct_point(self, point: Coordinates) -> bool:
         map_size = self.__size
         return 0 <= point.get_x() <= map_size[0] - 1 and 0 <= point.get_y() <= map_size[1] - 1
-
-

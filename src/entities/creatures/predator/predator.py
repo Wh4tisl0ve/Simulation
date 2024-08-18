@@ -14,5 +14,8 @@ class Predator(Creature):
     def migrate(self, way: List[Coordinates]) -> None:
         pass
 
+    def attack(self) -> None:
+        pass
+
     def get_food(self) -> Type:
         return self._food

@@ -26,11 +26,12 @@ class MapConsoleRenderer:
             print(f'{i}', end='')
             for j in range(map_height):
                 if map.is_cell_empty(Coordinates(i, j)):
-                    print('\t🔲', end='')
+                    print('\t🏾', end='')
                 else:
                     icon_entity = self.select_icon_entities(map.get_entity(Coordinates(i, j)))
                     print(f'\t{icon_entity}', end='')
             print(' ')
+        print()
 
     def select_icon_entities(self, entity: Entity) -> str:
         if isinstance(entity, Deer):

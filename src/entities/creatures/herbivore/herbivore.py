@@ -17,9 +17,5 @@ class Herbivore(Creature, ABC):
     def migrate(self, way: List[Coordinates]):
         pass
 
-    @abstractmethod
-    def eat(self):
-        pass
-
     def get_food(self) -> Type:
         return self.__food

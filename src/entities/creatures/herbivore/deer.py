@@ -23,7 +23,7 @@ class Deer(Herbivore):
         way = finder.finding_shortest_way(self.get_coord())
 
         if len(way) >= 1:
-            self.migrate(way)
+            self.migrate(way[1:])
 
     def migrate(self, way: List[Coordinates]) -> None:
         steps = self.__cnt_cells_pass

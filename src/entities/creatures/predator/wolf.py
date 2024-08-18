@@ -20,7 +20,7 @@ class Wolf(Predator):
         way = finder.finding_shortest_way(self.get_coord())
 
         if len(way) >= 1:
-            self.migrate(way)
+            self.migrate(way[1:])
 
     def migrate(self, way: List[Coordinates]) -> None:
         steps = self.__cnt_cells_pass
@@ -30,3 +30,6 @@ class Wolf(Predator):
             steps = self.__cnt_cells_pass - 1
 
         self.set_coord(way[steps])
+
+    def __repr__(self):
+        return f'Волк с координатами {self.get_coord()}'
