@@ -10,7 +10,7 @@ from src.map.map import Map
 class Wolf(Predator):
     def __init__(self, coord: Coordinates):
         super().__init__(coord, random.randint(1, 6), random.randint(60, 100))
-        self.__cnt_cells_pass: int = 1
+        self.__cnt_cells_pass: int = 3
         self.__attack_range: int = 1
 
     def make_move(self, map: Map) -> None:
