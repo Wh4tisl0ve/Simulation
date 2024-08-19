@@ -1,12 +1,9 @@
 import random
-from typing import Type
 
 from src.entities.creatures.herbivore.herbivore import Herbivore
-from src.entities.resources.grass import Grass
 from src.find_way import WayFinder
 from src.map.coordinates import Coordinates
 from src.map.map import Map
-from typing import List
 
 
 class Deer(Herbivore):

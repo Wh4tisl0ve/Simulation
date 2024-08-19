@@ -1,5 +1,4 @@
 import random
-from typing import List
 
 from src.entities.creatures.predator.predator import Predator
 from src.find_way import WayFinder

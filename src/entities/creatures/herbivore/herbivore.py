@@ -1,14 +1,13 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 from src.entities.creatures.creature import Creature
 from src.entities.resources.grass import Grass
 from src.map.coordinates import Coordinates
 from typing import List
 from typing import Type
-import random
 
 
-class Herbivore(Creature, ABC):
+class Herbivore(Creature):
     def __init__(self, coord: Coordinates, age: int, weight: int, cnt_cells_pass: int):
         super().__init__(coord, age, weight, cnt_cells_pass)
         self._food: Type = Grass
