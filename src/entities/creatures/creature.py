@@ -12,6 +12,7 @@ class Creature(Entity, ABC):
         super().__init__(coord)
         self._age = age
         self._weight = weight
+        self._health_point: int = int((self._age * self._weight) / 10)
 
     @abstractmethod
     def make_move(self, map: Map) -> None:

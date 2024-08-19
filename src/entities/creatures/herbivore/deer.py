@@ -37,5 +37,5 @@ class Deer(Herbivore):
         return self._health_point
 
     def __repr__(self):
-        return f'Олень с координатами {self.get_coord()}'
+        return f'Олень с координатами {self.get_coord()} и здоворьем: {self._health_point}'
 
