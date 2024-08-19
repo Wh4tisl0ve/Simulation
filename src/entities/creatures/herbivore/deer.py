@@ -11,8 +11,10 @@ from typing import List
 
 class Deer(Herbivore):
     def __init__(self, coord: Coordinates):
-        super().__init__(coord, random.randint(5, 20), random.randint(75, 200))
-        self.__cnt_cells_pass: int = 3
+        super().__init__(coord=coord,
+                         age=random.randint(5, 20),
+                         weight=random.randint(75, 200),
+                         cnt_cells_pass=3)
 
     def make_move(self, map: Map):
         finder = WayFinder(map, self._food)
@@ -21,15 +23,6 @@ class Deer(Herbivore):
         if len(way) >= 1:
             self.migrate(way[1:])
 
-    def migrate(self, way: List[Coordinates]) -> None:
-        steps = self.__cnt_cells_pass
-        if steps > len(way):
-            steps = len(way) - 1
-        else:
-            steps = self.__cnt_cells_pass - 1
-
-        self.set_coord(way[steps])
-
     def set_hp(self, hp: int) -> None:
         self._health_point = hp
 
@@ -37,5 +30,5 @@ class Deer(Herbivore):
         return self._health_point
 
     def __repr__(self):
-        return f'Олень с координатами {self.get_coord()} и здоворьем: {self._health_point}'
+        return f'Олень с координатами {self.get_coord()} и здоровьем: {self._health_point}'
 

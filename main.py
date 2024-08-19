@@ -3,7 +3,7 @@ from src.simulation import Simulation
 
 
 def main():
-    map = Map((8, 5))
+    map = Map((8, 8))
     simulation = Simulation(map)
     simulation.start_simulation()
 

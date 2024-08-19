@@ -17,7 +17,6 @@ class Actions:
         map = self.__map.get_map()
         for entity in list(map.values()):
             if isinstance(entity, Creature):
-                print(entity)
                 entity.make_move(self.__map)
                 self.__map.update()
 
