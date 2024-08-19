@@ -11,7 +11,6 @@ import random
 class Herbivore(Creature, ABC):
     def __init__(self, coord: Coordinates, age: int, weight: int):
         super().__init__(coord, age, weight)
-        self._health_point: int = int((self._age * self._weight) / 10)
         self._food: Type = Grass
 
     @abstractmethod

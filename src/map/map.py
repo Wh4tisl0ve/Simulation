@@ -1,7 +1,8 @@
 import random
 
-from src.entities.entity import Entity
+from src.entities.creatures.creature import Creature
 from src.map.coordinates import Coordinates
+from src.entities.entity import Entity
 
 
 class Map:

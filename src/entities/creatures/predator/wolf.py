@@ -30,15 +30,16 @@ class Wolf(Predator):
         if self.is_attack_possible(way, steps):
             self.attack(way, steps, map)
         else:
+            print('Волк пошел до еды')
             self.set_coord(way[steps])
 
     def attack(self, way: list, steps: int, map: Map) -> None:
-        herbivore_attacked = map.get_entity(way[-1])
+        herbivore_attacked = map.get_creatures(way[-1])
 
-        """if herbivore_attacked.get_hp() <= 0:
+        if herbivore_attacked.get_hp() <= 0:
             self.set_coord(herbivore_attacked.get_coord())
         else:
-            herbivore_attacked.set_hp(herbivore_attacked.get_hp() - self._attack_power)"""
+            herbivore_attacked.set_hp(herbivore_attacked.get_hp() - self._attack_power)
 
         print('АТАКА', self, 'Сила: ', self._attack_power)
         print('Атакуемый:', herbivore_attacked)
