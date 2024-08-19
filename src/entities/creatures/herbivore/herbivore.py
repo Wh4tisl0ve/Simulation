@@ -9,13 +9,14 @@ import random
 
 
 class Herbivore(Creature, ABC):
-    def __init__(self, coord: Coordinates):
-        super().__init__(coord)
-        self.__food: Type = Grass
+    def __init__(self, coord: Coordinates, age: int, weight: int):
+        super().__init__(coord, age, weight)
+        self._health_point: int = int((self._age * self._weight) / 10)
+        self._food: Type = Grass
 
     @abstractmethod
     def migrate(self, way: List[Coordinates]):
         pass
 
     def get_food(self) -> Type:
-        return self.__food
+        return self._food
