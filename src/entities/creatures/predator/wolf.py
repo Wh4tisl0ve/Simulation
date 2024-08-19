@@ -10,13 +10,13 @@ from src.map.map import Map
 class Wolf(Predator):
     def __init__(self, coord: Coordinates):
         super().__init__(coord, random.randint(1, 6), random.randint(60, 100))
-        self.__cnt_cells_pass: int = 4
-        self.__attack_range: int = 2
+        self.__cnt_cells_pass: int = 1
+        self.__attack_range: int = 1
 
     def make_move(self, map: Map) -> None:
         finder = WayFinder(map, self.get_food())
         way = finder.finding_shortest_way(self.get_coord())
-        print(way)
+
         if len(way) >= 1:
             self.migrate(way[1:], map)
 
@@ -28,9 +28,11 @@ class Wolf(Predator):
             steps = self.__cnt_cells_pass - 1
 
         if self.is_attack_possible(way, steps):
+            steps_attack = self.__cnt_cells_pass - abs(len(way) - self.__cnt_cells_pass - self.__attack_range - 1)
+            if steps_attack >= 0:
+                self.set_coord(way[steps_attack])
             self.attack(way, steps, map)
         else:
-            print('Волк пошел до еды')
             self.set_coord(way[steps])
 
     def attack(self, way: list, steps: int, map: Map) -> None:
@@ -38,11 +40,9 @@ class Wolf(Predator):
 
         if herbivore_attacked.get_hp() <= 0:
             self.set_coord(herbivore_attacked.get_coord())
-        else:
-            herbivore_attacked.set_hp(herbivore_attacked.get_hp() - self._attack_power)
+            return
 
-        print('АТАКА', self, 'Сила: ', self._attack_power)
-        print('Атакуемый:', herbivore_attacked)
+        herbivore_attacked.set_hp(herbivore_attacked.get_hp() - self._attack_power)
 
     def is_attack_possible(self, way: list, steps: int) -> bool:
         food_coord_index = len(way) - 1
