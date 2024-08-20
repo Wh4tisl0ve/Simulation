@@ -11,7 +11,7 @@ class Wolf(Predator):
         super().__init__(coord=coord,
                          age=random.randint(1, 6),
                          weight=random.randint(60, 100),
-                         attack_range=1,
+                         attack_range=2,
                          cnt_cells_pass=4)
 
     def make_move(self, map: Map) -> None:
