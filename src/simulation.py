@@ -1,6 +1,3 @@
-import threading
-from threading import Thread
-
 from src.actions.actions import Actions
 from src.map.map import Map
 from src.map.renderer import MapConsoleRenderer
@@ -9,9 +6,9 @@ import time
 
 class Simulation:
     def __init__(self):
-        self.__map = Map((10, 15))
+        self.__map = Map((7, 7))
         self.__field_renderer = MapConsoleRenderer()
-        self.__actions = Actions(self.__map)
+        self.__actions = Actions(self.__map, 'data/proportion.json')
         self.__cnt_round = 0
         self.__is_running = True
 
@@ -19,7 +16,6 @@ class Simulation:
         self.__actions.turn_actions()
 
     def start_simulation(self) -> None:
-        self.__is_running = True
         self.__actions.init_actions()
         self.__field_renderer.render(self.__map)
         while True:
@@ -38,7 +34,3 @@ class Simulation:
                     self.__is_running = not self.__is_running
             except Exception:
                 pass
-
-    def is_started(self) -> bool:
-        return self.__is_running
-

@@ -5,9 +5,9 @@ from src.reader import read_json
 
 
 class Actions:
-    def __init__(self, map: Map):
+    def __init__(self, map: Map, path_file: str):
         self.__map = map
-        self.__proportion = read_json('data/proportion.json')
+        self.__proportion = read_json(path_file)
         self.__actions_spawner = ActionsSpawner(self.__proportion, self.__map)
 
     def init_actions(self) -> None:

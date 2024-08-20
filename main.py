@@ -1,15 +1,9 @@
-import threading
-
-from src.simulation import Simulation
+from src.launcher import Launcher
 
 
 def main():
-    simulation = Simulation()
-    thread_start = threading.Thread(target=simulation.start_simulation)
-    thread_pause = threading.Thread(target=simulation.pause_simulation)
-    thread_pause.start()
-    thread_start.start()
-
+    launcher = Launcher()
+    launcher.run()
 
 
 if __name__ == '__main__':
