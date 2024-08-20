@@ -6,7 +6,7 @@ import time
 
 class Simulation:
     def __init__(self):
-        self.__map = Map((7, 7))
+        self.__map = Map((10, 10))
         self.__field_renderer = MapConsoleRenderer()
         self.__actions = Actions(self.__map, 'data/proportion.json')
         self.__cnt_round = 0
