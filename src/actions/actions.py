@@ -11,7 +11,8 @@ class Actions:
 
     def init_actions(self) -> None:
         proportion = read_json('data/proportion.json')
-        self.generate_entities(proportion)
+        dict_entity = self.get_dict_entity(proportion)
+        self.generate_entities(dict_entity)
 
     def turn_actions(self) -> None:
         map = self.__map.get_map()
@@ -19,14 +20,17 @@ class Actions:
             if isinstance(entity, Creature):
                 entity.make_move(self.__map)
                 self.__map.update()
+        print(self.__map.calc_entity_on_map())
 
-    def generate_entities(self, proportion: dict) -> None:
-        dict_entity = ActionsUtils().get_concrete_entities(proportion)
-        for entity, value_proportion in dict_entity.items():
-            cnt_entity = ceil((value_proportion * self.__map.get_square_map()) / 2)
-            self.add_entity(cnt_entity, entity)
+    def generate_entities(self, dict_entity: dict) -> None:
+        for entity, cnt_entity in dict_entity.items():
+            self.add_entity(entity, cnt_entity)
 
-    def add_entity(self, count, entity) -> None:
+    def get_dict_entity(self, proportion: dict) -> dict:
+        dict_entity_necessary = ActionsUtils().get_concrete_entities(proportion, self.__map.get_square_map())
+        return dict_entity_necessary
+
+    def add_entity(self, entity, count) -> None:
         for _ in range(count):
             coord = self.__map.get_random_empty_coord()
             self.__map.add_entity_on_map(entity(coord), coord)

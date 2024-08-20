@@ -1,3 +1,5 @@
+from math import ceil
+
 from src.entities.creatures.herbivore.herbivore import Herbivore
 from src.entities.creatures.predator.predator import Predator
 from src.entities.resources.resource import Resource
@@ -5,7 +7,7 @@ from src.entities.static_objects.static_object import StaticObject
 
 
 class ActionsUtils:
-    def get_concrete_entities(self, proportion: dict) -> dict:
+    def get_concrete_entities(self, proportion: dict, map_square: int) -> dict:
         dict_subclasses = self.__get_all_subclasses()
         dict_concrete_entity = dict()
 
@@ -14,9 +16,9 @@ class ActionsUtils:
             list_subclasses = dict_subclasses[i]
             for entity in list_subclasses:
                 if len(list_subclasses) >= 2:
-                    dict_concrete_entity[entity] = proportion_value / len(list_subclasses)
+                    dict_concrete_entity[entity] = ceil(((proportion_value / len(list_subclasses)) * map_square) / 2)
                 else:
-                    dict_concrete_entity[entity] = proportion_value
+                    dict_concrete_entity[entity] = ceil((proportion_value * map_square) / 2)
 
         return dict_concrete_entity
 
