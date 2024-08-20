@@ -15,7 +15,7 @@ def show_menu() -> None:
 
 def show_information():
     print('Для паузы/продолжения симуляции введите любой символ и нажмите Enter')
-    time.sleep(5)
+    time.sleep(3)
 
 
 def show_incorrect_command_error() -> None:
