@@ -13,7 +13,7 @@ from src.map.map import Map
 
 
 class MapConsoleRenderer:
-    def render(self, map: Map):
+    def render(self, map: Map) -> None:
         map_size = map.get_map_size()
         map_width = map_size[0]
         map_height = map_size[1]

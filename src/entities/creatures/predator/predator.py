@@ -1,9 +1,8 @@
-from typing import Type, List
-
 from src.entities.creatures.creature import Creature
 from src.entities.creatures.herbivore.herbivore import Herbivore
 from src.map.coordinates import Coordinates
 from src.map.map import Map
+from typing import Type, List
 
 
 class Predator(Creature):

@@ -1,7 +1,7 @@
-import random
-
 from src.map.coordinates import Coordinates
 from src.entities.entity import Entity
+from typing import Dict, Tuple, Type
+import random
 
 
 class Map:
@@ -12,7 +12,7 @@ class Map:
     def get_entity(self, coord: Coordinates) -> Entity:
         return self.__map[coord]
 
-    def get_map_size(self) -> tuple:
+    def get_map_size(self) -> Tuple[int]:
         return self.__size
 
     def get_random_empty_coord(self) -> Coordinates:
@@ -29,7 +29,7 @@ class Map:
     def get_square_map(self) -> int:
         return self.__size[0] * self.__size[1]
 
-    def get_map(self) -> dict:
+    def get_map(self) -> Dict[Coordinates, Entity]:
         return self.__map
 
     def update(self) -> None:
@@ -38,7 +38,7 @@ class Map:
                 self.__map[entity.get_coord()] = entity
                 self.__map.pop(point)
 
-    def calc_entity_on_map(self) -> dict:
+    def calc_entity_on_map(self) -> Dict[Type, int]:
         dict_count_entity = {i.__class__: 0 for i in self.__map.values()}
 
         for i in self.__map.values():

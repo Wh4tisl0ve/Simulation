@@ -1,8 +1,7 @@
-from typing import Type
 from src.map.coordinates import Coordinates
-from queue import Queue
-
 from src.map.map import Map
+from typing import Type, List
+from queue import Queue
 
 
 class WayFinder:
@@ -10,15 +9,15 @@ class WayFinder:
         self.__map = map
         self.__entity_find = entity_find
 
-    def finding_shortest_way(self, start_coord: Coordinates):
+    def finding_shortest_way(self, start_coord: Coordinates) -> List[Coordinates]:
         list_goals_point = self.get_goals_point(self.__entity_find, self.__map.get_map())
         list_ways = []
         for goal_point in list_goals_point:
-            list_ways.append(self.bfs(start_coord, goal_point))
+            list_ways.append(self.search_breadth_first(start_coord, goal_point))
 
         return min([way for way in list_ways if len(way) > 0], default=[], key=len)
 
-    def bfs(self, start_coord: Coordinates, goal_coord: Coordinates):
+    def search_breadth_first(self, start_coord: Coordinates, goal_coord: Coordinates) -> List[Coordinates]:
         visited_point = set()
         queue = Queue()
         queue.put(start_coord)
@@ -42,7 +41,7 @@ class WayFinder:
 
         return []
 
-    def build_path(self, parent: dict, start_point: Coordinates, goal_point: Coordinates) -> list:
+    def build_path(self, parent: dict, start_point: Coordinates, goal_point: Coordinates) -> List[Coordinates]:
         pointer = goal_point
         path = [pointer]
 
@@ -52,7 +51,7 @@ class WayFinder:
 
         return list(reversed(path))
 
-    def get_list_moves(self, current_point: Coordinates) -> list:
+    def get_list_moves(self, current_point: Coordinates) -> List[Coordinates]:
         coord_up = Coordinates(current_point.get_x() - 1, current_point.get_y())
         coord_down = Coordinates(current_point.get_x() + 1, current_point.get_y())
         coord_right = Coordinates(current_point.get_x(), current_point.get_y() + 1)
@@ -61,7 +60,7 @@ class WayFinder:
         list_moves = [coord_up, coord_down, coord_left, coord_right]
         return list_moves
 
-    def get_goals_point(self, entity_find: Type, entity_coord: dict) -> list:
+    def get_goals_point(self, entity_find: Type, entity_coord: dict) -> List[Coordinates]:
         list_goals_point = []
 
         for point, entity in entity_coord.items():

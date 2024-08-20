@@ -3,10 +3,10 @@ class Coordinates:
         self.__x = x
         self.__y = y
 
-    def get_x(self):
+    def get_x(self) -> int:
         return self.__x
 
-    def get_y(self):
+    def get_y(self) -> int:
         return self.__y
 
     def __eq__(self, other):

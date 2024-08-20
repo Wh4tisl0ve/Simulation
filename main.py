@@ -1,4 +1,3 @@
-from src.map.map import Map
 from src.simulation import Simulation
 
 

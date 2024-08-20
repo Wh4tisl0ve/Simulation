@@ -1,13 +1,13 @@
-from math import ceil
-
 from src.entities.creatures.herbivore.herbivore import Herbivore
 from src.entities.creatures.predator.predator import Predator
 from src.entities.resources.resource import Resource
 from src.entities.static_objects.static_object import StaticObject
+from math import ceil
+from typing import Dict, Type, List
 
 
 class ActionsUtils:
-    def get_concrete_entities(self, proportion: dict, map_square: int) -> dict:
+    def get_concrete_entities(self, proportion: dict, map_square: int) -> Dict[Type, int]:
         dict_subclasses = self.__get_all_subclasses()
         dict_concrete_entity = dict()
 
@@ -22,7 +22,7 @@ class ActionsUtils:
 
         return dict_concrete_entity
 
-    def __get_all_subclasses(self) -> dict:
+    def __get_all_subclasses(self) -> Dict[Type, List[Type]]:
         list_parent_object = [Predator, Herbivore, Resource, StaticObject]
         dict_result = dict()
         for parent in list_parent_object:
@@ -32,4 +32,5 @@ class ActionsUtils:
                 subclasses.append(child)
 
             dict_result[parent] = subclasses
+
         return dict_result

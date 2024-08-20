@@ -1,9 +1,8 @@
-import random
-
 from src.entities.creatures.predator.predator import Predator
 from src.find_way import WayFinder
 from src.map.coordinates import Coordinates
 from src.map.map import Map
+import random
 
 
 class Wolf(Predator):

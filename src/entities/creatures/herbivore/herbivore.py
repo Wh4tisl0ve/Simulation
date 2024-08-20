@@ -1,10 +1,7 @@
-from abc import ABC
-
 from src.entities.creatures.creature import Creature
 from src.entities.resources.grass import Grass
 from src.map.coordinates import Coordinates
-from typing import List
-from typing import Type
+from typing import List, Type
 
 
 class Herbivore(Creature):
@@ -12,7 +9,7 @@ class Herbivore(Creature):
         super().__init__(coord, age, weight, cnt_cells_pass)
         self._food: Type = Grass
 
-    def migrate(self, way: List[Coordinates]):
+    def migrate(self, way: List[Coordinates]) -> None:
         steps = self._cnt_cells_pass
         if steps > len(way):
             steps = len(way) - 1
