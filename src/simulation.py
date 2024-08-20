@@ -7,7 +7,7 @@ from src.map.renderer import MapConsoleRenderer
 
 class Simulation:
     def __init__(self):
-        self.__map = Map((10, 10))
+        self.__map = Map((5, 5))
         self.__field_renderer = MapConsoleRenderer()
         self.__actions = Actions(self.__map)
         self.__cnt_round = 0

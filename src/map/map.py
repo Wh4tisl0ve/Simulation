@@ -39,10 +39,10 @@ class Map:
                 self.__map.pop(point)
 
     def calc_entity_on_map(self) -> dict:
-        dict_count_entity = {i.__class__.__bases__[0]: 0 for i in self.__map.values()}
+        dict_count_entity = {i.__class__: 0 for i in self.__map.values()}
 
         for i in self.__map.values():
-            dict_count_entity[i.__class__.__bases__[0]] += 1
+            dict_count_entity[i.__class__] += 1
 
         return dict_count_entity
 
