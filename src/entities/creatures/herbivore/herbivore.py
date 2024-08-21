@@ -15,7 +15,6 @@ class Herbivore(Creature):
             steps = len(way) - 1
         else:
             steps = self._cnt_cells_pass - 1
-        print(f'{self} переместился на {way[steps]}')
         self.set_coord(way[steps])
 
 
