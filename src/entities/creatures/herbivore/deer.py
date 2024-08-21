@@ -25,5 +25,5 @@ class Deer(Herbivore):
     def get_hp(self) -> int:
         return self._health_point
 
-    def __repr__(self) -> str:
-        return f'Олень с координатами {self.get_coord()} и здоровьем: {self._health_point}'
+    def __str__(self) -> str:
+        return f'Олень({self.get_coord()}), HP: {self._health_point}'

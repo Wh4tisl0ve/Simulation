@@ -20,5 +20,5 @@ class Wolf(Predator):
         if len(way) >= 1:
             self.migrate(way[1:], map)
 
-    def __repr__(self):
-        return f'Волк с координатами {self.get_coord()} и силой: {self._attack_power}'
+    def __str__(self):
+        return f'Волк({self.get_coord()}), сила: {self._attack_power}'

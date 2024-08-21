@@ -32,8 +32,11 @@ class Predator(Creature):
         herbivore_attacked = map.get_entity(way[-1])
 
         if herbivore_attacked.get_hp() <= 0:
+            print(f'{self} съел {herbivore_attacked}')
             self.set_coord(herbivore_attacked.get_coord())
             return
+
+        print(f'{self} атаковал {herbivore_attacked}')
 
         herbivore_attacked.set_hp(herbivore_attacked.get_hp() - self._attack_power)
 
