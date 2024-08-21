@@ -22,4 +22,3 @@ class Actions:
                 self.__map.update()
         self.__actions_spawner.generate_entities(
             self.__actions_spawner.calc_cnt_missing_entity(self.__map.calc_entity_on_map()))
-
