@@ -17,6 +17,5 @@ class Herbivore(Creature):
             steps = self._cnt_cells_pass - 1
         self.set_coord(way[steps])
 
-
     def get_food(self) -> Type:
         return self._food
