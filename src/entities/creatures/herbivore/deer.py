@@ -1,5 +1,5 @@
 from src.entities.creatures.herbivore.herbivore import Herbivore
-from src.map.coordinates import Coordinates
+from src.map.coordinate import Coordinate
 from typing import List
 import random
 
@@ -7,13 +7,13 @@ from src.map.map import Map
 
 
 class Deer(Herbivore):
-    def __init__(self, coord: Coordinates):
+    def __init__(self, coord: Coordinate):
         super().__init__(coord=coord,
                          age=random.randint(5, 20),
                          weight=random.randint(75, 200),
                          cnt_cells_pass=3)
 
-    def migrate(self, way: List[Coordinates], map: Map) -> None:
+    def migrate(self, way: List[Coordinate], map: Map) -> None:
         if way:
             steps = min(self._cnt_cells_pass, len(way) - 1)
             self.set_coord(way[steps])

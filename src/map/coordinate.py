@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass(order=True, frozen=True)
-class Coordinates:
+class Coordinate:
     x: int
     y: int
 

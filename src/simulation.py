@@ -21,9 +21,9 @@ class Simulation:
         self.perform_spawn_action()
         self.__console_renderer.render(self.__map)
         while True:
-            self.__move_action.perform()
-            self.__console_renderer.render(self.__map)
             time.sleep(3)
+            self.next_turn()
+            self.__console_renderer.render(self.__map)
 
     def next_turn(self) -> None:
         self.__move_action.perform()

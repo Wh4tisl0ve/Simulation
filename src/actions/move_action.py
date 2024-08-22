@@ -19,4 +19,3 @@ class MoveAction(Action):
             way = way_finder.finding_shortest_way(entity.get_coord(), goals_ways)
             entity.make_move(way, self._map)
             self._map.update()
-

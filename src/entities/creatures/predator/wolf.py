@@ -1,10 +1,10 @@
 from src.entities.creatures.predator.predator import Predator
-from src.map.coordinates import Coordinates
+from src.map.coordinate import Coordinate
 import random
 
 
 class Wolf(Predator):
-    def __init__(self, coord: Coordinates):
+    def __init__(self, coord: Coordinate):
         super().__init__(coord=coord,
                          age=random.randint(1, 6),
                          weight=random.randint(60, 100),
