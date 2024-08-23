@@ -1,7 +1,8 @@
 from src.entities.entity import Entity
 from src.map.coordinate import Coordinate
 from src.map.map import Map
-from typing import List, Type
+from src.way_finder import WayFinder
+from typing import Type
 
 
 class Creature(Entity):
@@ -13,7 +14,10 @@ class Creature(Entity):
         self._cnt_cells_pass: int = cnt_cells_pass
         self.__food = food
 
-    def make_move(self, way: List[Coordinate], map: Map) -> None:
+    def make_move(self, map: Map) -> None:
+        way_finder = WayFinder(map)
+        goals_ways = way_finder.get_goals_coords(self.get_food())
+        way = way_finder.finding_shortest_way(self.get_coord(), goals_ways)
         self.migrate(way, map)
 
     def get_food(self) -> Type:

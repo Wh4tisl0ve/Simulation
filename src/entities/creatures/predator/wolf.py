@@ -4,10 +4,13 @@ import random
 
 
 class Wolf(Predator):
+    age_range = random.randint(1, 6)
+    weight_range = random.randint(60, 100)
+
     def __init__(self, coord: Coordinate):
         super().__init__(coord=coord,
-                         age=random.randint(1, 6),
-                         weight=random.randint(60, 100),
+                         age=self.age_range,
+                         weight=self.weight_range,
                          attack_range=1,
                          cnt_cells_pass=4)
 

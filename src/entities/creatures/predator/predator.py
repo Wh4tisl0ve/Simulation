@@ -29,10 +29,9 @@ class Predator(Creature):
 
     def attack(self, way: List[Coordinate], map: Map) -> None:
         herbivore_attacked = map.get_entity(way[-1])
-        herbivore_hp = herbivore_attacked.get_hp() - self._attack_power
 
-        if herbivore_hp >= 0:
-            herbivore_attacked.set_hp(herbivore_hp)
+        if herbivore_attacked.get_hp() >= 0:
+            herbivore_attacked.set_hp(herbivore_attacked.get_hp() - self._attack_power)
         else:
             self.set_coord(herbivore_attacked.get_coord())
 

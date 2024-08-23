@@ -1,6 +1,6 @@
 from src.map.coordinate import Coordinate
 from src.entities.entity import Entity
-from typing import Dict, Tuple, Type
+from typing import Dict, Tuple
 import random
 
 
@@ -45,5 +45,5 @@ class Map:
         map_size = self.__size
         return 0 <= point.x <= map_size[0] - 1 and 0 <= point.y <= map_size[1] - 1
 
-    def remove_entity(self, coord: Coordinate):
-        self.__map.pop(coord)
+    def get_square_map(self) -> int:
+        return self.__size[0] * self.__size[1]

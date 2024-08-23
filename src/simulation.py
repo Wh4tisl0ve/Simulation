@@ -12,7 +12,7 @@ import time
 
 class Simulation:
     def __init__(self):
-        self.__map: Map = Map((10, 10))
+        self.__map: Map = Map((7, 7))
         self.__console_renderer = MapConsoleRenderer()
         self.__move_action: Action = MoveAction(self.__map)
         self.__list_spawn_action = []
@@ -34,10 +34,8 @@ class Simulation:
             spawn_action.perform()
 
     def __fill_spawn_action(self):
-        self.__list_spawn_action.append(RockSpawnAction(self.__map))
-        self.__list_spawn_action.append(TreeSpawnAction(self.__map))
-        self.__list_spawn_action.append(DeerSpawnAction(self.__map))
-        self.__list_spawn_action.append(WolfSpawnAction(self.__map))
-        self.__list_spawn_action.append(GrassSpawnAction(self.__map))
-        self.__list_spawn_action.append(GrassSpawnAction(self.__map))
-        self.__list_spawn_action.append(GrassSpawnAction(self.__map))
+        self.__list_spawn_action.append(RockSpawnAction(0.15, self.__map))
+        self.__list_spawn_action.append(TreeSpawnAction(0.1, self.__map))
+        self.__list_spawn_action.append(DeerSpawnAction(0.2, self.__map))
+        self.__list_spawn_action.append(WolfSpawnAction(0.2, self.__map))
+        self.__list_spawn_action.append(GrassSpawnAction(0.4, self.__map))
