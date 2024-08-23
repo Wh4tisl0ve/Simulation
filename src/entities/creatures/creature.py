@@ -1,7 +1,7 @@
 from src.entities.entity import Entity
 from src.map.coordinate import Coordinate
 from src.map.map import Map
-from src.way_finder import WayFinder
+from src.entities.creatures.way_finder import WayFinder
 from typing import Type
 
 

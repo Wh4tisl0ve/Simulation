@@ -12,21 +12,30 @@ import time
 
 class Simulation:
     def __init__(self):
-        self.__map: Map = Map((7, 7))
+        self.__map: Map = Map((10, 10))
         self.__console_renderer = MapConsoleRenderer()
         self.__move_action: Action = MoveAction(self.__map)
         self.__list_spawn_action = []
+        self.__is_running = True
 
     def start_simulation(self) -> None:
         self.perform_spawn_action()
         self.__console_renderer.render(self.__map)
         while True:
+            if not self.__is_running:
+                continue
             time.sleep(3)
-            self.next_turn()
+            self.__move_action.perform()
             self.__console_renderer.render(self.__map)
 
-    def next_turn(self) -> None:
-        self.__move_action.perform()
+    def pause_simulation(self) -> None:
+        while True:
+            try:
+                command = input()
+                if command != "":
+                    self.__is_running = not self.__is_running
+            except Exception:
+                pass
 
     def perform_spawn_action(self):
         self.__fill_spawn_action()
